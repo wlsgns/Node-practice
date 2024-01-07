@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="timeline">
+    <div class="My-name">
+      <h2>내 정보 변경</h2>
+      {% if user.id %}
+        <div>내 이름 : {{user.nick}}</div>
+      {% endif %}
+      <form action="/user/name-fix" method="post">
+        <label for="new_nick">바꿀 닉네임 :</label>
+        <input type="text" id="new_nick" name="new_nick" required>
+        <input type="submit" value="적용" class="btn">
+      </form>
+    </div>
+{% endblock %}
